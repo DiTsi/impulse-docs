@@ -1,8 +1,10 @@
 # Alertmanager
 
+
+
 ## Configuration
 
-You should set `repeat_interval` option in **Alertmanager's** config less than `firing_timeout` (see [example](https://github.com/DiTsi/impulse/blob/develop/impulse.yml.default) file). Explanation [here](theory.md)
+You should set `repeat_interval` option in **Alertmanager's** config less than `firing_timeout` (see [example](https://github.com/DiTsi/impulse/blob/develop/impulse.yml.default) file). Explanation [here](theory.md#unknown).
 
 ## Migrate from Alertmanager
 

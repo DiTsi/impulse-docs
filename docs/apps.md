@@ -1,4 +1,4 @@
-# Apps
+# Instant Messaging Apps
 
 ## Slack
 

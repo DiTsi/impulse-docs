@@ -1,4 +1,3 @@
-Objects.excalidraw
 mattermost.md
 venv
-docs/media
+docs/media/*.excalidraw
