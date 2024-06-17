@@ -1,3 +1,5 @@
+docs/media/impulse.excalidraw.svg
+docs/media/*.excalidraw
+docs/media/*.xcf
 mattermost.md
 venv
-docs/media/*.excalidraw

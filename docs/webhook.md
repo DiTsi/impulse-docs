@@ -1,6 +1,10 @@
-# Twilio
+# Webhooks
 
-## Calls configuration
+Webhooks used to send POST HTTP requests in
+
+## Examples
+
+### Example for Twilio calls
 
 You can configure webhook to call using Twilio service
 
