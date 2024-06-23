@@ -1,5 +1,4 @@
 docs/media/*.excalidraw
 docs/media/*.xcf
-docs/media/*.png
 mattermost.md
 venv
