@@ -8,7 +8,7 @@ It get's alerts from Alertmanager and send it to [instant messaging app](apps.md
 
 Alertmanager sends alerts with one of two statuses: **firing** and **resolved**. Of course, first status always **firing** when problem occurs. Based on these statuses IMPulse create Incidents.
 
-<img src="media/slack_firing.png" alt="" width="400"/>
+<img src="../media/slack_firing.png" alt="" width="400"/>
 
 ## Incident
 
@@ -22,13 +22,13 @@ Unlike of Alertmanager alerts, IMPulse Incidents may have 4 statuses: **firing**
 
 #### firing and resolved
 
-<img src="media/slack_firing.png" alt="" width="400"/> <img src="media/slack_resolved.png" alt="" width="400"/>
+<img src="../media/slack_firing.png" alt="" width="400"/> <img src="../media/slack_resolved.png" alt="" width="400"/>
 
 Incident change status to **firing** and **resolved** based on Alertmanager's alerts statuses sent to IMPulse.
 
 #### unknown
 
-<img src="media/slack_unknown.png" alt="" width="400"/>
+<img src="../media/slack_unknown.png" alt="" width="400"/>
 
 What is **unknown**. Alertmanager has `repeat_interval` value which force Alertmanager to sent actual alert status even if it didn't changed. IMPulse has [`timeouts.firing`](https://github.com/DiTsi/impulse/blob/main/impulse.yml.default) value during which alert status should updates. And if `repeat_interval` more than [`timeouts.firing`](https://github.com/DiTsi/impulse/blob/main/impulse.yml.default) Incident switch to non-actual status which named **unknown**.
 
@@ -40,7 +40,7 @@ If reason for problem was first - admins should know it. It reason was second, y
 
 #### closed
 
-<img src="media/slack_closed.png" alt="" width="400"/>
+<img src="../media/slack_closed.png" alt="" width="400"/>
 
 What is **closed** Incident. As it sounds it is Incident which already didn\`t tracks by IMPulse. There are two ways how it can be closed. First, **resolved** Incident stays in this status for `timeouts.resolved` time. Second, **unknown** Incidents stays in this status for `timeouts.unknown` time.
 
