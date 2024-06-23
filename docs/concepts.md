@@ -1,6 +1,10 @@
-# Theory
+# Concepts
 
-IMPulse installed between [Alertmanager](alertmanager.md) and one of [Instant Messaging Apps](apps.md).
+IMPulse installed between Alertmanager and one of [instant messaging apps](apps.md).
+
+![None](media/impulse.excalidraw.svg)
+
+It get's alerts from Alertmanager and send it to instant messaging app channel based on `application` and `route` [configurations](install_and_configure.md#42-impulseyml).
 
 ## Incident statuses
 
