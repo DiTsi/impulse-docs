@@ -4,13 +4,15 @@ IMPulse installed between Alertmanager and one of [instant messaging apps](apps.
 
 ![None](media/impulse.excalidraw.svg)
 
-It get's alerts from Alertmanager and send it to instant messaging app channel based on `application` and `route` [configurations](install_and_configure.md#42-impulseyml).
+It get's alerts from Alertmanager and send it to [instant messaging app](apps.md) channel based on `application` and `route` [configuration](install_and_configure.md#42-impulseyml).
 
-## Incident statuses
+## Incident lifecycle
 
 ![None](media/incident_behavior.excalidraw.svg)
 
 Alertmanager sends alerts with one of two statuses: **firing** and **resolved**. Of course, first status always **firing** when problem occurs. Based on these statuses IMPulse creates Incidents (message representation of alert with actual status).
+
+## Incident statuses
 
 Unlike of Alertmanager alerts, IMPulse Incidents may have 4 statuses: **firing**, **resolved**, **unknown**, **closed**.
 

@@ -11,6 +11,7 @@ If you want to understand how IMPulse works see [Concepts](concepts.md).
 ## Features
 
 IMPulse features are:
+
 - incident management based on Alertmanager alerts
 - auto-close zombie incidents
 - users mention

@@ -10,27 +10,32 @@
 
 ### Configure bot
 
-1. In **Basic Information** section copy "Verification Token" as ENV `SLACK_VERIFICATION_TOKEN`
-2. In **OAuth & Permissions** section add these "Bot Token Scopes":
-  - channels:read
-  - chat:write
-  - chat:write.customize
-  - chat:write.public
-  - groups:read
-  - im:read
-  - im:write
-  - mpim:read
-  - users:read
-3. !!! Add REDIRECTURI
-4. In **OAuth & Permissions** section click button "Install to Workspace"
-5. !!! In **OAuth & Permissions** section **Restrict API Token Usage** subsection add IP address of your IMPulse server
-5.  In **OAuth & Permissions** section copy "Bot User OAuth Token" as ENV `SLACK_BOT_USER_OAUTH_TOKEN`
-6. In **Interactivity & Shortcuts** add "Request URL" in format `https://<your_domain>/slack`
-7. In **Interactivity & Shortcuts** add two shortcuts
-   - press the button "Create New Shortcut"
-   - select "Global", press "Next"
-   - type "Chain" to **Name**, "chain" to **Callback ID** and "." to **Short Description**
-   - press **Create**
-   - do the same for "Status" shortcut
-
-We recommend use `white list` for your servers
+1. In **Basic Information** section
+    - copy "Verification Token" as ENV `SLACK_VERIFICATION_TOKEN` (using in `impulse.yml`)
+2. In **OAuth & Permissions** section
+    - in **Scopes** subsection add these "Bot Token Scopes":
+        - channels:read
+        - chat:write
+        - chat:write.customize
+        - chat:write.public
+        - groups:read
+        - im:read
+        - im:write
+        - mpim:read
+        - users:read
+    - in **Redirect URLs** subsection click on "Add New Redirect URL", type `https://<your_domain>/slack`
+    - click button "Install to Workspace"
+    - we highly recommend add IP address of your IMPulse server in white list in **Restrict API Token Usage** subsection
+    - copy "Bot User OAuth Token" as ENV `SLACK_BOT_USER_OAUTH_TOKEN` (using in `impulse.yml`)
+3. In **Interactivity & Shortcuts** section
+    - enable "Interactivity"
+    - add "Request URL" in format `https://<your_domain>/slack`
+    - add shortcuts "Chain" and "Status":
+        - press the button "Create New Shortcut"
+        - select "Global", press "Next"
+        - type "Chain" to **Name**, "chain" to **Callback ID** and "." to **Short Description**
+        - press **Create**
+        - press the button "Create New Shortcut"
+        - select "Global", press "Next"
+        - type "Status" to **Name**, "status" to **Callback ID** and "." to **Short Description**
+        - press **Create**
