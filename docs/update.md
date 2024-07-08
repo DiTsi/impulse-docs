@@ -1,0 +1,7 @@
+# Update
+
+IMPulse versions look like **`1.0`** where **`1`** is major version and **`0`** is minor.
+
+For minor update (like **`1.0` -> `1.4`**) you can just download and run new version without additional modifications.
+
+For major update (like **`1.6` -> `2.0`**) you should see instructions in [CHANGELOG.md](https://github.com/DiTsi/impulse/blob/main/CHANGELOG.md).

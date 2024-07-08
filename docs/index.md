@@ -14,8 +14,9 @@ IMPulse features are:
 
 - incident management based on Alertmanager alerts
 - auto-close zombie incidents
-- users mention
+- users / groups mention
 - incident status update alerts
-- start/stop notification chain
-- start/stop status update messages
-- webhook for custom notifications (such as Twilio call)
+- start / pause notification chain
+- start / pause status update messages
+- webhook for custom notifications (such as Twilio)
+- updates notifications

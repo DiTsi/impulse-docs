@@ -14,7 +14,7 @@ Alertmanager sends alerts with one of two statuses: **firing** and **resolved**.
 
 Incident is a message representation of alert with actual status.
 
-and user notifications in message thread based on [application.chains](https://github.com/DiTsi/impulse/blob/main/impulse.yml.default). You can modify Incident format using [application.message_template](https://github.com/DiTsi/impulse/blob/main/impulse.yml.default).
+and user notifications in message thread based on [application.chains](https://github.com/DiTsi/impulse/blob/main/impulse.yml.slack). You can modify Incident format using [application.message_template](https://github.com/DiTsi/impulse/blob/main/impulse.yml.slack).
 
 Unlike of Alertmanager alerts, IMPulse Incidents may have 4 statuses: **firing**, **resolved**, **unknown**, **closed**.
 
@@ -30,7 +30,7 @@ Incident change status to **firing** and **resolved** based on Alertmanager's al
 
 <img src="../media/slack_unknown.png" alt="" width="400"/>
 
-What is **unknown**. Alertmanager has `repeat_interval` value which force Alertmanager to sent actual alert status even if it didn't changed. IMPulse has [`timeouts.firing`](https://github.com/DiTsi/impulse/blob/main/impulse.yml.default) value during which alert status should updates. And if `repeat_interval` more than [`timeouts.firing`](https://github.com/DiTsi/impulse/blob/main/impulse.yml.default) Incident switch to non-actual status which named **unknown**.
+What is **unknown**. Alertmanager has `repeat_interval` value which force Alertmanager to sent actual alert status even if it didn't changed. IMPulse has [`timeouts.firing`](https://github.com/DiTsi/impulse/blob/main/impulse.yml.slack) value during which alert status should updates. And if `repeat_interval` more than [`timeouts.firing`](https://github.com/DiTsi/impulse/blob/main/impulse.yml.slack) Incident switch to non-actual status which named **unknown**.
 
 There are two reasons for this. First, IMPulse was down when Alertmanager sends actual alert status. Second, Alertmanager don't send status during `timeouts.firing`.
 
