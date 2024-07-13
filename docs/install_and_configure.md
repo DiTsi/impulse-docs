@@ -59,16 +59,16 @@ cp .env.mattermost .env
 ```bash
 mkdir impulse impulse/config impulse/data
 cd impulse
-wget https://github.com/DiTsi/impulse/blob/develop/docker-compose.yml
+wget -O docker-compose.yml https://raw.githubusercontent.com/DiTsi/impulse/master/docker-compose.yml
 # for Slack
-wget https://github.com/DiTsi/impulse/blob/develop/impulse.yml.slack config/impulse.yml
+wget -O config/impulse.yml https://raw.githubusercontent.com/DiTsi/impulse/master/impulse.yml.slack
 # for Mattermost
-wget https://github.com/DiTsi/impulse/blob/develop/impulse.yml.mattermost config/impulse.yml
+wget -O config/impulse.yml https://raw.githubusercontent.com/DiTsi/impulse/master/impulse.yml.mattermost
 ```
 
 ## configure
 
-You should set two ENVs `SLACK_BOT_USER_OAUTH_TOKEN`, `SLACK_VERIFICATION_TOKEN` for Slack or `MATTERMOST_ACCESS_TOKEN`, `MATTERMOST_TOKEN_ID` for Mattermost (see [apps](apps.md) to get it).
+You should set two ENVs `SLACK_BOT_USER_OAUTH_TOKEN`, `SLACK_VERIFICATION_TOKEN` for Slack or `MATTERMOST_ACCESS_TOKEN` for Mattermost (see [apps](apps.md) to get it).
 
 Modify `impulse.yml`
 
@@ -78,8 +78,8 @@ Modify `impulse.yml`
 |-|-|-|
 | DATA_PATH | path to data directory | ./data |
 | CONFIG_PATH | path to `impulse.yml` directory | ./ |
+| LOG_LEVEL | Log level | INFO |
 | MATTERMOST_ACCESS_TOKEN | [Mattermost 'Access Token'](apps.md#mattermost) | ./ |
-| MATTERMOST_TOKEN_ID | [Mattermost 'Token ID'](apps.md#mattermost) | ./ |
 | SLACK_BOT_USER_OAUTH_TOKEN | [Slack 'Bot User OAuth Token'](apps.md#slack) | |
 | SLACK_VERIFICATION_TOKEN | [Slack 'Verification Token'](apps.md#slack) | |
 
