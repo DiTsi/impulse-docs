@@ -110,24 +110,43 @@ Webhooks used to send POST HTTP requests
 
 ###### Twilio calls
 
-Configure `webhooks` in `impulse.yml` that way:
-```yaml
-webhooks:
-  Oleg:
-    url: "https://api.twilio.com/2010-04-01/Accounts/{{ env['TWILIO_ACCOUNT_SID'] }}/Calls.json"
-    data:
-      To: '+998xxxxxxxxx'
-      From: "{{ env['TWILIO_NUMBER'] }}"
-      Url: http://example.com/twiml.xml
-    user: "{{ env['TWILIO_ACCOUNT_SID'] }}:{{ env['TWILIO_AUTH_TOKEN'] }}"
-```
+1. Configure `webhooks` in `impulse.yml` that way:
+    ```yaml
+    webhooks:
+      Dmitry_call:
+        url: "https://api.twilio.com/2010-04-01/Accounts/{{ env['TWILIO_ACCOUNT_SID'] }}/Calls.json"
+        data:
+          To: '+998xxxxxxxxx'
+          From: "{{ env['TWILIO_NUMBER'] }}"
+          Url: http://example.com/twiml.xml
+        user: "{{ env['TWILIO_ACCOUNT_SID'] }}:{{ env['TWILIO_AUTH_TOKEN'] }}"
+    ```
 
-Don't forget to set custom environment variables in `.env` or `docker-compose.yml`:
-```ini
-TWILIO_ACCOUNT_SID=<xxxxxxxxxxxxx>
-TWILIO_AUTH_TOKEN=<xxxxxxxxxxxxx>
-TWILIO_NUMBER=+<xxxxxxxxxxxxx>
-```
+2. Add custom environment variables in `.env` or `docker-compose.yml`:
+    ```ini
+    TWILIO_ACCOUNT_SID
+    TWILIO_AUTH_TOKEN
+    TWILIO_NUMBER
+    ```
+
+###### Zvonok.com calls
+
+1. Configure `webhooks` in `impulse.yml` that way:
+    ```yaml
+    webhooks:
+      Dmitry_call:
+        url: "https://zvonok.com/manager/cabapi_external/api/v1/phones/call/"
+        data:
+          campaign_id: '{{ env["ZVONOK_CAMPAIGN_ID"] }}'
+          phone: '+998xxxxxxxxx'
+          public_key: '{{ env["ZVONOK_PUBLIC_KEY"] }}'
+    ```
+
+2. Add custom environment variables in `.env` or `docker-compose.yml`:
+    ```ini
+    ZVONOK_CAMPAIGN_ID
+    ZVONOK_PUBLIC_KEY
+    ```
 
 ## run
 
@@ -145,9 +164,10 @@ echo 'SLACK_VERIFICATION_TOKEN=<your_verif_token>' >> .env #!
 ### docker
 
 Set environment variables
-
-- `SLACK_BOT_USER_OAUTH_TOKEN`
-- `SLACK_VERIFICATION_TOKEN`
+```yaml
+SLACK_BOT_USER_OAUTH_TOKEN
+SLACK_VERIFICATION_TOKEN
+```
 
 in `docker-compose.yml` and run IMPulse:
 

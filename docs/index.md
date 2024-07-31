@@ -18,5 +18,5 @@ IMPulse features are:
 - incident status update alerts
 - start / pause notification chain
 - start / pause status update messages
-- webhook for custom notifications (such as Twilio)
+- webhook for custom notifications (such as [Twilio](https://twilio.com))
 - updates notifications

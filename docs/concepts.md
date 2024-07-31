@@ -36,7 +36,7 @@ There are two reasons for this. First, IMPulse was down when Alertmanager sends 
 
 When Incident become **unknown** IMPulse send warning message to admin_channel.
 
-If reason for problem was first - admins should know it. It reason was second, you should check that Alertmanager's `repeat_interval` is less than IMPulse's `timeouts.firing`. I recommend set it 1.5 times lower.
+If reason for problem was first - admins should know it. It reason was second, you should check that Alertmanager's `repeat_interval`+`group_interval` is less than IMPulse's `timeouts.firing`.
 
 #### closed
 
