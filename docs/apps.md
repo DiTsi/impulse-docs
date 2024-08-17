@@ -45,6 +45,17 @@ All [application.admin_users](https://github.com/DiTsi/impulse/blob/main/impulse
 3. In **Basic Information** section
     - use "Verification Token" as ENV `SLACK_VERIFICATION_TOKEN` (see [configure](install_and_configure.md#configure))
 
+### Configure channels
+
+1. `application.admin_users` **should** be in all `route` channels
+2. Add users from `application.chains` to their channels. 
+
+   To make it simpler you can add all `application.users` to all channels from `route`. If users do next recommendation, no extra notifications will appear
+3. Highly recommend to set "Just @mentions" notifications for every of `application.users` for their `route` channels. Users on their channels should:
+    - press **right mouse button** on channel and select "Change notifications"
+    - select "Mentions" and check "Also include @channel and @here
+    - press **Save Changes**
+
 ## Mattermost
 
 ### Add bot
@@ -67,3 +78,7 @@ All [application.admin_users](https://github.com/DiTsi/impulse/blob/main/impulse
 - press the button **Add Members**
 - type "impulse" in search, select it and press the button **Add**
 - press the button **Save**
+
+### Configure channels
+
+See [instruction for Slack](apps.md#configure-channels)

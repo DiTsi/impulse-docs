@@ -8,39 +8,48 @@ It get's alerts from Alertmanager and send it to [instant messaging app](apps.md
 
 Alertmanager sends alerts with one of two statuses: **firing** and **resolved**. Of course, first status always **firing** when problem occurs. Based on these statuses IMPulse create Incidents.
 
-<img src="../media/slack_firing.png" alt="" width="400"/>
+<p align="center"><img src="../media/slack_firing.png" alt="" width="400"/></p>
 
 ## Incident
 
 Incident is a message representation of alert with actual status.
 
-and user notifications in message thread based on [application.chains](https://github.com/DiTsi/impulse/blob/main/impulse.yml.slack). You can modify Incident format using [application.message_template](https://github.com/DiTsi/impulse/blob/main/impulse.yml.slack).
+### Structure
+Starting from [`v1.0.0`](https://github.com/DiTsi/impulse/releases/tag/v1.0.0) incident messages has structure:
 
-Unlike of Alertmanager alerts, IMPulse Incidents may have 4 statuses: **firing**, **resolved**, **unknown**, **closed**.
+<p align="center"><img src="../media/incident_message_structure.png" alt="" width="400"/></p>
+
+Default templates for `status icons`, `header` and `body` are [here](https://github.com/DiTsi/impulse/tree/main/templates).
+
+You can create your own template files based on defaults and set their path in [application.template_files](https://github.com/DiTsi/impulse/blob/main/impulse.yml.slack).
+
 
 ### Statuses and their colors
 
+Unlike of Alertmanager alerts, IMPulse Incidents may have 4 statuses: **firing**, **resolved**, **unknown**, **closed**.
+
 #### firing and resolved
 
-<img src="../media/slack_firing.png" alt="" width="400"/> <img src="../media/slack_resolved.png" alt="" width="400"/>
+<img src="../media/slack_firing.png" alt="" width="320"/> <img src="../media/slack_resolved.png" alt="" width="320"/>
 
 Incident change status to **firing** and **resolved** based on Alertmanager's alerts statuses sent to IMPulse.
 
 #### unknown
 
-<img src="../media/slack_unknown.png" alt="" width="400"/>
+<p align="center"><img src="../media/slack_unknown.png" alt="" width="400"/></p>
 
-What is **unknown**. Alertmanager has `repeat_interval` value which force Alertmanager to sent actual alert status even if it didn't changed. IMPulse has [`timeouts.firing`](https://github.com/DiTsi/impulse/blob/main/impulse.yml.slack) value during which alert status should updates. And if `repeat_interval` more than [`timeouts.firing`](https://github.com/DiTsi/impulse/blob/main/impulse.yml.slack) Incident switch to non-actual status which named **unknown**.
+What is **unknown**. Alertmanager has `repeat_interval` and `group_interval` values which force Alertmanager to sent actual alert status even if it didn't changed. IMPulse has [`timeouts.firing`](https://github.com/DiTsi/impulse/blob/main/impulse.yml.slack) value during which alert status should be updated. And if `repeat_interval` + `group_interval` more than [`timeouts.firing`](https://github.com/DiTsi/impulse/blob/main/impulse.yml.slack) Incident switch to non-actual status named **unknown**.
 
-There are two reasons for this. First, IMPulse was down when Alertmanager sends actual alert status. Second, Alertmanager don't send status during `timeouts.firing`.
+There are two reasons for this:
 
-When Incident become **unknown** IMPulse send warning message to admin_channel.
+- first, IMPulse didn't receive actual status from Alertmanager. May be IMPulse was down, Alertmanager was down or network problems
+- second, `repeat_interval`+`group_interval` is less than IMPulse's `timeouts.firing`. Admins should check it
 
-If reason for problem was first - admins should know it. It reason was second, you should check that Alertmanager's `repeat_interval`+`group_interval` is less than IMPulse's `timeouts.firing`.
+When Incident becomes **unknown** IMPulse send warning message to `application.admin_users`.
 
 #### closed
 
-<img src="../media/slack_closed.png" alt="" width="400"/>
+<p align="center"><img src="../media/slack_closed.png" alt="" width="400"/></p>
 
 What is **closed** Incident. As it sounds it is Incident which already didn\`t tracks by IMPulse. There are two ways how it can be closed. First, **resolved** Incident stays in this status for `timeouts.resolved` time. Second, **unknown** Incidents stays in this status for `timeouts.unknown` time.
 
