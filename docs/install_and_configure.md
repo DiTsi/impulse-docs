@@ -119,7 +119,7 @@ Webhooks used to send POST HTTP requests
           To: '+998xxxxxxxxx'
           From: "{{ env['TWILIO_NUMBER'] }}"
           Url: http://example.com/twiml.xml
-        user: "{{ env['TWILIO_ACCOUNT_SID'] }}:{{ env['TWILIO_AUTH_TOKEN'] }}"
+        auth: "{{ env['TWILIO_ACCOUNT_SID'] }}:{{ env['TWILIO_AUTH_TOKEN'] }}"
     ```
 
 2. Add custom environment variables in `.env` or `docker-compose.yml`:
