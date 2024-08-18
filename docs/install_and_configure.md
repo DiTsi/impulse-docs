@@ -1,10 +1,10 @@
 # Installation and Configuration
 
-## configure Slack
+## Instant messaging app
 
-[See](apps.md#slack) important notes, add and configure bot
+See [notes](apps.md#notes) and configure your application
 
-## configure Alertmanager
+## Alertmanager
 
 All code examples about [`alertmanager.yml`](https://prometheus.io/docs/alerting/latest/configuration/)
 
@@ -37,11 +37,13 @@ route:
   receiver: 'impulse'
 ```
 
-## get
+## IMPulse
+
+### get
 
 There are two ways to run IMPulse: python or docker. Select one of these
 
-### python
+#### python
 
 ```bash
 git clone git@github.com:DiTsi/impulse.git impulse
@@ -54,7 +56,7 @@ cp impulse.mattermost.yml impulse.yml
 cp .env.mattermost .env
 ```
 
-### docker
+#### docker
 
 ```bash
 mkdir impulse impulse/config impulse/data
@@ -66,13 +68,13 @@ wget -O config/impulse.yml https://raw.githubusercontent.com/DiTsi/impulse/maste
 wget -O config/impulse.yml https://raw.githubusercontent.com/DiTsi/impulse/master/impulse.mattermost.yml
 ```
 
-## configure
+### configure
 
 You should set two ENVs `SLACK_BOT_USER_OAUTH_TOKEN`, `SLACK_VERIFICATION_TOKEN` for Slack or `MATTERMOST_ACCESS_TOKEN` for Mattermost (see [apps](apps.md) to get it).
 
 Modify `impulse.yml`
 
-### environment variables
+#### environment variables
 
 | Variable | Description | Default |
 |-|-|-|
@@ -83,7 +85,7 @@ Modify `impulse.yml`
 | SLACK_BOT_USER_OAUTH_TOKEN | [Slack 'Bot User OAuth Token'](apps.md#slack) | |
 | SLACK_VERIFICATION_TOKEN | [Slack 'Verification Token'](apps.md#slack) | |
 
-### impulse.yml
+#### impulse.yml
 
 `impulse.slack.yml` (or `impulse.mattermost.yml` for Mattermost) has all available configuration options. By default enabled (without `#`) minimal configuration IMPulse can start with. For additional settings commented out.
 
@@ -94,21 +96,19 @@ On the root level configuration has these blocks:
 - application
 - webhooks
 
-#### timeouts
+##### timeouts
 
 `timeouts` block have 3 options: `firing`, `unknown`, `resolved`. For information see comments in [impulse.slack.yml](https://github.com/DiTsi/impulse/blob/main/impulse.slack.yml) or [Concepts](concepts.md).
 
-#### route
+##### route
 
 Route for Incidents routing based on alert's fields. It made very similar to Alertmanager's [route](https://prometheus.io/docs/alerting/latest/configuration/#route).
 
-#### webhooks
+##### webhooks
 
 Webhooks used to send POST HTTP requests
 
-##### examples
-
-###### Twilio calls
+###### Twilio calls example
 
 1. Configure `webhooks` in `impulse.yml` that way:
         
@@ -127,7 +127,7 @@ Webhooks used to send POST HTTP requests
         TWILIO_AUTH_TOKEN
         TWILIO_NUMBER
 
-###### Zvonok.com calls
+###### Zvonok.com calls example
 
 1. Configure `webhooks` in `impulse.yml` that way:
 
@@ -144,11 +144,11 @@ Webhooks used to send POST HTTP requests
         ZVONOK_CAMPAIGN_ID
         ZVONOK_PUBLIC_KEY
 
-## run
+### run
 
 Use your installation option
 
-### python
+#### python
 
 ```bash
 # use 'SLACK_BOT_USER_OAUTH_TOKEN' and
@@ -157,7 +157,7 @@ echo 'SLACK_BOT_USER_OAUTH_TOKEN=<your_oauth_token>' > .env #!
 echo 'SLACK_VERIFICATION_TOKEN=<your_verif_token>' >> .env #!
 ```
 
-### docker
+#### docker
 
 Set environment variables
 

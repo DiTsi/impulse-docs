@@ -1,10 +1,10 @@
 # Instant Messaging Apps
 
+We have integrations with Slack and Mattermost
+
 ## Notes
 
 Now only public channels are supported.
-
-All [application.admin_users](https://github.com/DiTsi/impulse/blob/main/impulse.slack.yml) should be added to all incident channels.
 
 ## Slack
 
