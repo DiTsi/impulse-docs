@@ -4,7 +4,7 @@
 
 Now only public channels are supported.
 
-All [application.admin_users](https://github.com/DiTsi/impulse/blob/main/impulse.yml.slack) should be added to all incident channels.
+All [application.admin_users](https://github.com/DiTsi/impulse/blob/main/impulse.slack.yml) should be added to all incident channels.
 
 ## Slack
 

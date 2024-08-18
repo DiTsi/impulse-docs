@@ -10,7 +10,7 @@ All code examples about [`alertmanager.yml`](https://prometheus.io/docs/alerting
 
 ### set repeat_interval
 
-Set `repeat_interval` option less than [`timeouts.firing`](https://github.com/DiTsi/impulse/blob/main/impulse.yml.slack) (default `6h`). Explanation [here](concepts.md#unknown)
+Set `repeat_interval` option less than [`timeouts.firing`](https://github.com/DiTsi/impulse/blob/main/impulse.slack.yml) (default `6h`). Explanation [here](concepts.md#unknown)
 
 ```yaml
 route:
@@ -47,10 +47,10 @@ There are two ways to run IMPulse: python or docker. Select one of these
 git clone git@github.com:DiTsi/impulse.git impulse
 cd impulse
 # for Slack
-cp impulse.yml.slack impulse.yml
+cp impulse.slack.yml impulse.yml
 cp .env.slack .env
 # for Mattermost
-cp impulse.yml.mattermost impulse.yml
+cp impulse.mattermost.yml impulse.yml
 cp .env.mattermost .env
 ```
 
@@ -61,9 +61,9 @@ mkdir impulse impulse/config impulse/data
 cd impulse
 wget -O docker-compose.yml https://raw.githubusercontent.com/DiTsi/impulse/master/docker-compose.yml
 # for Slack
-wget -O config/impulse.yml https://raw.githubusercontent.com/DiTsi/impulse/master/impulse.yml.slack
+wget -O config/impulse.yml https://raw.githubusercontent.com/DiTsi/impulse/master/impulse.slack.yml
 # for Mattermost
-wget -O config/impulse.yml https://raw.githubusercontent.com/DiTsi/impulse/master/impulse.yml.mattermost
+wget -O config/impulse.yml https://raw.githubusercontent.com/DiTsi/impulse/master/impulse.mattermost.yml
 ```
 
 ## configure
@@ -85,7 +85,7 @@ Modify `impulse.yml`
 
 ### impulse.yml
 
-`impulse.yml.slack` (or `impulse.yml.mattermost` for Mattermost) has all available configuration options. By default enabled (without `#`) minimal configuration IMPulse can start with. For additional settings commented out.
+`impulse.slack.yml` (or `impulse.mattermost.yml` for Mattermost) has all available configuration options. By default enabled (without `#`) minimal configuration IMPulse can start with. For additional settings commented out.
 
 On the root level configuration has these blocks:
 
@@ -96,7 +96,7 @@ On the root level configuration has these blocks:
 
 #### timeouts
 
-`timeouts` block have 3 options: `firing`, `unknown`, `resolved`. For information see comments in [impulse.yml.slack](https://github.com/DiTsi/impulse/blob/main/impulse.yml.slack) or [Concepts](concepts.md).
+`timeouts` block have 3 options: `firing`, `unknown`, `resolved`. For information see comments in [impulse.slack.yml](https://github.com/DiTsi/impulse/blob/main/impulse.slack.yml) or [Concepts](concepts.md).
 
 #### route
 

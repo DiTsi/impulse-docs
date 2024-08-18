@@ -21,7 +21,7 @@ Starting from [`v1.0.0`](https://github.com/DiTsi/impulse/releases/tag/v1.0.0) i
 
 Default templates for `status icons`, `header` and `body` are [here](https://github.com/DiTsi/impulse/tree/main/templates).
 
-You can create your own template files based on defaults and set their path in [application.template_files](https://github.com/DiTsi/impulse/blob/main/impulse.yml.slack).
+You can create your own template files based on defaults and set their path in [application.template_files](https://github.com/DiTsi/impulse/blob/main/impulse.slack.yml).
 
 
 ### Statuses and their colors
@@ -38,7 +38,7 @@ Incident change status to **firing** and **resolved** based on Alertmanager's al
 
 <p align="center"><img src="../media/slack_unknown.png" alt="" width="400"/></p>
 
-What is **unknown**. Alertmanager has `repeat_interval` and `group_interval` values which force Alertmanager to sent actual alert status even if it didn't changed. IMPulse has [`timeouts.firing`](https://github.com/DiTsi/impulse/blob/main/impulse.yml.slack) value during which alert status should be updated. And if `repeat_interval` + `group_interval` more than [`timeouts.firing`](https://github.com/DiTsi/impulse/blob/main/impulse.yml.slack) Incident switch to non-actual status named **unknown**.
+What is **unknown**. Alertmanager has `repeat_interval` and `group_interval` values which force Alertmanager to sent actual alert status even if it didn't changed. IMPulse has [`timeouts.firing`](https://github.com/DiTsi/impulse/blob/main/impulse.slack.yml) value during which alert status should be updated. And if `repeat_interval` + `group_interval` more than [`timeouts.firing`](https://github.com/DiTsi/impulse/blob/main/impulse.slack.yml) Incident switch to non-actual status named **unknown**.
 
 There are two reasons for this:
 
