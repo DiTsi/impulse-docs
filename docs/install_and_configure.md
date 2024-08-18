@@ -45,8 +45,10 @@ There are two ways to run IMPulse: python or docker. Select one of these
 
 #### python
 
+use `<release_tag>` from [here](https://github.com/DiTsi/impulse/releases)
+
 ```bash
-git clone git@github.com:DiTsi/impulse.git impulse
+git clone --branch <release_tag> --single-branch git@github.com:DiTsi/impulse.git impulse
 cd impulse
 # for Slack
 cp impulse.slack.yml impulse.yml
@@ -67,6 +69,8 @@ wget -O config/impulse.yml https://raw.githubusercontent.com/DiTsi/impulse/maste
 # for Mattermost
 wget -O config/impulse.yml https://raw.githubusercontent.com/DiTsi/impulse/master/impulse.mattermost.yml
 ```
+
+don't forget to replace `<release_tag>` in `docker-compose.yml` to one of [release tags](https://github.com/DiTsi/impulse/releases)
 
 ### configure
 
