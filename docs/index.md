@@ -20,3 +20,7 @@ IMPulse features are:
 - start / pause status update messages
 - webhook for custom notifications (such as [Twilio](https://twilio.com))
 - updates notifications
+
+## Getting started
+
+Documentation entrypoint is [Installation](installation.md)

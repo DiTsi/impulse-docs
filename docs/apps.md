@@ -41,9 +41,9 @@ Now only public channels are supported.
         - users:read
     - click the button **Install to Workspace**
     - we highly recommend add IP address of your IMPulse server in white list in **Restrict API Token Usage** subsection
-    - use "Bot User OAuth Token" as ENV `SLACK_BOT_USER_OAUTH_TOKEN` (see [configure](install_and_configure.md#configure))
+    - use "Bot User OAuth Token" as ENV `SLACK_BOT_USER_OAUTH_TOKEN` (see [Configuration](configuration.md))
 3. In **Basic Information** section
-    - use "Verification Token" as ENV `SLACK_VERIFICATION_TOKEN` (see [configure](install_and_configure.md#configure))
+    - use "Verification Token" as ENV `SLACK_VERIFICATION_TOKEN` (see [Configuration](configuration.md))
 
 ### Configure channels
 
@@ -69,7 +69,7 @@ Now only public channels are supported.
     <!-- - select icon  -->
     - set **Role** to "System Admin"
     - press the button "Create Bot Account"
-    - use "Token" as ENV `MATTERMOST_ACCESS_TOKEN` (see [configure](install_and_configure.md#configure))
+    - use "Token" as ENV `MATTERMOST_ACCESS_TOKEN` (see [Configuration](configuration.md))
     - press the button **Done**
 
 ### Configure bot
