@@ -48,9 +48,10 @@ Now only public channels are supported.
 ### Configure channels
 
 1. `application.admin_users` **should** be in all `route` channels
-2. Add users from `application.chains` to their channels. 
+2. Add users from `application.chains` to their channels.
 
-   To make it simpler you can add all `application.users` to all channels from `route`. If users do next recommendation, no extra notifications will appear
+    To make it simpler you can add all `application.users` to all channels from `route`. If users do next recommendation, no extra notifications will appear
+
 3. Highly recommend to set "Just @mentions" notifications for every of `application.users` for their `route` channels. Users on their channels should:
     - press **right mouse button** on channel and select "Change notifications"
     - select "Mentions" and check "Also include @channel and @here
