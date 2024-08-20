@@ -10,7 +10,7 @@ See [Alertmanager](alertmanager.md)
 
 ## IMPulse
 
-You should set environment variables and configure impulse.yml:
+You should set environment variables and configure `impulse.yml`:
 
 ### Environment variables
 

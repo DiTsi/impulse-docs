@@ -35,7 +35,7 @@ don't forget to replace `<release_tag>` in `docker-compose.yml` to one of [relea
 
 ## configure
 
-See [Configuration](configuration.md#impulse) to modify `impulse.yml`
+See [Configuration](configuration.md#impulse)
 
 ## run
 
