@@ -1,3 +1,8 @@
-site_name: IMPulse Docs
+site_name: IMPulse
 theme:
   name: readthedocs
+
+extra:
+  analytics:
+    provider: google
+    property: G-LL3R99ZZGW
