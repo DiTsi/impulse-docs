@@ -43,7 +43,10 @@ Now only public channels are supported.
     - we highly recommend add IP address of your IMPulse server in white list in **Restrict API Token Usage** subsection
     - use "Bot User OAuth Token" as ENV `SLACK_BOT_USER_OAUTH_TOKEN` (see [Configuration](configuration.md))
 3. In **Basic Information** section
-    - use "Verification Token" as ENV `SLACK_VERIFICATION_TOKEN` (see [Configuration](configuration.md))
+    - in **App Credentials** subsection:
+        - use "Verification Token" as ENV `SLACK_VERIFICATION_TOKEN` (see [Configuration](configuration.md))
+    - in **Display Information** subsection:
+        - you can set [our logo](media/logo.png) as **App icon**
 
 ### Configure channels
 
@@ -66,7 +69,7 @@ Now only public channels are supported.
 2. Go to Menu (dots 3x3) > Integarations > Bot Accounts
     - press the button "Add Bot Account"
     - type "IMPulse" to **Username**
-    <!-- - select icon  -->
+    - you can set [our icon](media/logo.png) as **Bot Icon**
     - set **Role** to "System Admin"
     - press the button "Create Bot Account"
     - use "Token" as ENV `MATTERMOST_ACCESS_TOKEN` (see [Configuration](configuration.md))
