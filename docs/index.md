@@ -8,7 +8,7 @@ IMPulse - Incident Management Program that handle [Alertmanager's](https://prome
 
 If you want to understand how IMPulse works see [Concepts](concepts.md).
 
-## Features
+<!-- ## Features
 
 IMPulse features are:
 
@@ -19,8 +19,8 @@ IMPulse features are:
 - start / pause notification chain
 - start / pause status update messages
 - webhook for custom notifications (such as [Twilio](https://twilio.com))
-- updates notifications
+- updates notifications -->
 
 ## Getting started
 
-Documentation entrypoint is [Installation](installation.md)
+See [Installation](installation.md)
