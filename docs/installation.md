@@ -2,11 +2,11 @@
 
 ## get
 
-There are two ways to run IMPulse: python or docker. Select one of these
+There are two ways to run IMPulse: python or docker. Select one of these:
 
 ### python
 
-use `<release_tag>` from [here](https://github.com/DiTsi/impulse/releases)
+Use `<release_tag>` from [here](https://github.com/DiTsi/impulse/releases) and do:
 
 ```bash
 git clone --branch <release_tag> --single-branch git@github.com:DiTsi/impulse.git impulse
@@ -31,15 +31,15 @@ wget -O config/impulse.yml https://raw.githubusercontent.com/DiTsi/impulse/maste
 wget -O config/impulse.yml https://raw.githubusercontent.com/DiTsi/impulse/master/impulse.mattermost.yml
 ```
 
-don't forget to replace `<release_tag>` in `docker-compose.yml` to one of [release tags](https://github.com/DiTsi/impulse/releases)
+don't forget to replace `<release_tag>` in `docker-compose.yml` to one of the [release tags](https://github.com/DiTsi/impulse/releases).
 
 ## configure
 
-See [Configuration](configuration.md#impulse)
+See [Configuration](configuration.md#impulse).
 
 ## run
 
-Use your installation option
+Use your installation option.
 
 ### python
 
@@ -52,7 +52,7 @@ echo 'SLACK_VERIFICATION_TOKEN=<your_verif_token>' >> .env #!
 
 ### docker
 
-Set environment variables
+Set the environment variables:
 
 ```yaml
 SLACK_BOT_USER_OAUTH_TOKEN
