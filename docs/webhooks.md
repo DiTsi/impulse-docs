@@ -15,7 +15,7 @@
               Url: http://example.com/twiml.xml
             auth: "{{ env['TWILIO_ACCOUNT_SID'] }}:{{ env['TWILIO_AUTH_TOKEN'] }}"
 
-2. Add custom environment variables in `.env` or `docker-compose.yml`:
+2. Add these custom environment variables in `.env` or `docker-compose.yml`:
 
         TWILIO_ACCOUNT_SID
         TWILIO_AUTH_TOKEN
@@ -33,7 +33,7 @@
               phone: '+998xxxxxxxxx'
               public_key: '{{ env["ZVONOK_PUBLIC_KEY"] }}'
 
-2. Add custom environment variables in `.env` or `docker-compose.yml`:
+2. Add these custom environment variables in `.env` or `docker-compose.yml`:
 
         ZVONOK_CAMPAIGN_ID
         ZVONOK_PUBLIC_KEY
