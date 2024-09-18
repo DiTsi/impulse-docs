@@ -6,3 +6,22 @@ extra:
   analytics:
     provider: google
     property: G-LL3R99ZZGW
+
+nav:
+- index.md
+- Instant Messaging Apps:
+  - slack.md
+  - mattermost.md
+- Installation process:
+  - get.md
+  - Configure:
+    - apps.md
+    - alertmanager.md
+    - impulse.md
+  - run.md
+- Maintenance:
+  - upgrade.md
+- About:
+  - concepts.md
+  - versioning.md
+  - webhooks.md

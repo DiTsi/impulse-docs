@@ -1,5 +1,7 @@
 # Webhooks
 
+Webhooks is the only alternative notification way. It can be used to send POST HTTP requests to any endpoint.
+
 ## Examples
 
 ### Twilio calls example
