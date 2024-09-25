@@ -21,7 +21,15 @@ nav:
   - run.md
 - Maintenance:
   - upgrade.md
+  # - Exceptions:
+  #   - exceptions/chain-undefined.md
+  #   - exceptions/status-unknown.md
+  #   - exceptions/user-not_found.md
+  #   - exceptions/webhook-domain_non_existent.md
+  #   - exceptions/webhook-undefined.md
+  #   - exceptions/webhook_responce-above_400.md
 - About:
   - concepts.md
+  - templates.md
   - versioning.md
   - webhooks.md

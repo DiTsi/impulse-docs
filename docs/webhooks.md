@@ -2,6 +2,10 @@
 
 Webhooks is the only alternative notification way. It can be used to send POST HTTP requests to any endpoint.
 
+Webhooks can use special word `env` to get environment variables, such as passwords and tokens. See examples below.
+
+<!-- Add special word `incident` -->
+
 ## Examples
 
 ### Twilio calls example
