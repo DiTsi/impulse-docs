@@ -51,3 +51,8 @@
     - press **right mouse button** on channel and select "Change notifications"
     - select "Mentions" and check "Also include @channel and @here
     - press **Save Changes**
+
+4. To use IMPulse bot in private channels you should add it manually. Run command in all necessary private channels:
+    ```
+    /invite @IMPulse 
+    ```

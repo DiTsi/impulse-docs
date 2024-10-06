@@ -24,3 +24,8 @@
 ### Configure channels
 
 Do the same [instruction for Slack](slack.md#configure-channels)
+
+<!-- 4. To use IMPulse bot in private channels you should add it manually. Run command in all necessary private channels:
+    ```
+    /invite @impulse 
+    ``` -->
