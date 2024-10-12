@@ -7,10 +7,6 @@ extra:
     provider: google
     property: G-LL3R99ZZGW
 
-plugins:
-    - search
-    - awesome-pages
-
 nav:
 - index.md
 - Instant Messaging Apps:
@@ -25,13 +21,10 @@ nav:
   - run.md
 - Maintenance:
   - upgrade.md
-  # - Exceptions:
-  #   - exceptions/chain-undefined.md
-  #   - exceptions/status-unknown.md
-  #   - exceptions/user-not_found.md
-  #   - exceptions/webhook-domain_non_existent.md
-  #   - exceptions/webhook-undefined.md
-  #   - exceptions/webhook_responce-above_400.md
+  - Warnings:
+    - warnings/NotDefined.md
+    - warnings/NotFound.md
+    - warnings/StatusUnknown.md
 - About:
   - concepts.md
   - templates.md
