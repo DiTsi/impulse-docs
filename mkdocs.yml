@@ -22,8 +22,10 @@ nav:
 - Maintenance:
   - upgrade.md
   - Warnings:
+    - warnings/ConnectionError.md
     - warnings/NotDefined.md
     - warnings/NotFound.md
+    - warnings/ResponseCode.md
     - warnings/StatusUnknown.md
 - About:
   - concepts.md
