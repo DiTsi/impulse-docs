@@ -31,8 +31,8 @@
         - im:write
         - mpim:read
         - users:read
-    - click the button **Install to Workspace**
     - we highly recommend to add the IP address of your IMPulse server in white list in **Restrict API Token Usage** subsection
+    - in **OAuth Tokens** click the button **Install to &lt;your_workspace&gt;**, then **Allow**
     - use "Bot User OAuth Token" as ENV `SLACK_BOT_USER_OAUTH_TOKEN` (using [here](impulse.md))
 3. In **Basic Information** section:
     - in **App Credentials** subsection:
