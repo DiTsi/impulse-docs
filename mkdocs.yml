@@ -7,6 +7,10 @@ extra:
     provider: google
     property: G-LL3R99ZZGW
 
+plugins:
+    - search
+    - awesome-pages
+
 nav:
 - index.md
 - Instant Messaging Apps:
