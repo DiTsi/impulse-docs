@@ -27,6 +27,7 @@ Configuration has these blocks:
 - route
 - application
 - webhooks
+- experimental (don't use it)
 
 ### timeouts
 
@@ -45,3 +46,13 @@ Instant messaging app configuration. See comments in impulse.yml examples for [S
 
 See [Webhooks](webhooks.md) to 
 understand how to work with it.
+
+### experimental
+
+WE HIGHLY RECOMMEND DO NOT USE IT!
+
+Default value is `False`
+
+Name | Description | Values
+-|-|-
+`release_incident_and_recreate_chain_by_new_firing_alerts` | This option will <!-- release incident --> enable chain <br> and start it again | `True` / `False`
