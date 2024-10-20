@@ -23,11 +23,19 @@ To run IMPulse you should set `SLACK_BOT_USER_OAUTH_TOKEN`, `SLACK_VERIFICATION_
 
 Configuration has these blocks:
 
+- incident
 - timeouts
 - route
 - application
 - webhooks
 - experimental (don't use it)
+
+### incident
+
+Name | Description | Values
+-|-|-
+`alerts_firing_notifications` | Notification about new firing instances | `True` / `False` (default)
+`alerts_resolved_notifications` | Nofitication about old resolved instances | `True` / `False` (default)
 
 ### timeouts
 
@@ -49,10 +57,8 @@ understand how to work with it.
 
 ### experimental
 
-WE HIGHLY RECOMMEND DO NOT USE IT!
-
-Default value is `False`
+WE HIGHLY RECOMMEND DO NOT USE IT
 
 Name | Description | Values
 -|-|-
-`release_incident_and_recreate_chain_by_new_firing_alerts` | This option will <!-- release incident --> enable chain <br> and start it again | `True` / `False`
+`recreate_chain` | This option will <!-- release incident --> enable chain and start it again <br> when new alerts added to incident | `True` / `False` (default)

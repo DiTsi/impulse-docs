@@ -13,6 +13,8 @@ If you want to understand how IMPulse works see [Concepts](concepts.md).
 IMPulse features are:
 
 - incident management based on Alertmanager alerts
+- notifications about new 'firing' alerts
+- notifications abous some 'resolved' alerts
 - auto-close zombie incidents
 - users / groups mention
 - incident status update alerts
