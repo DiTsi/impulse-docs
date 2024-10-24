@@ -1,11 +1,8 @@
 site_name: Docs | IMPulse
 theme:
   name: readthedocs
-
-extra:
   analytics:
-    provider: google
-    property: G-LL3R99ZZGW
+    gtag: G-LL3R99ZZGW
 
 nav:
 - index.md
