@@ -10,7 +10,7 @@
     - you can set [our icon](media/logo.png) as **Bot Icon**
     - set **Role** to "System Admin"
     - press the button "Create Bot Account"
-    - use "Token" as ENV `MATTERMOST_ACCESS_TOKEN` (using [here](impulse.md))
+    - use "Token" as ENV `MATTERMOST_ACCESS_TOKEN` (using [here](config_file.md))
     - press the button **Done**
 
 ### Configure bot

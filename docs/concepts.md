@@ -1,10 +1,10 @@
 # Concepts
 
-IMPulse is installed between Alertmanager and one of the [instant messaging apps](apps.md).
+IMPulse is installed between Alertmanager and one of the messengers.
 
 ![None](media/impulse.excalidraw.svg)
 
-IMPulse gets alerts from Alertmanager and sends them to instant messaging app's channel based on `application` and `route` configuration (see [impulse.yml](impulse.md#impulseyml)).
+IMPulse gets alerts from Alertmanager and sends them to your messenger's channel based on `application` and `route` configuration (see [Configuration File](config_file.md)).
 
 Alertmanager sends alerts with one of two statuses: **firing** and **resolved**. Of course, first status is always **firing** when problem occurs. Based on these statuses IMPulse creates Incidents.
 
@@ -12,7 +12,7 @@ Alertmanager sends alerts with one of two statuses: **firing** and **resolved**.
 
 ## Incident
 
-Incident is a message representation of alert with actual status.
+Incident is a messege representation of alert with actual status.
 
 ### Structure
 Starting from [`v1.0.0`](https://github.com/DiTsi/impulse/releases/tag/v1.0.0) incident messages have such structure:
@@ -21,7 +21,7 @@ Starting from [`v1.0.0`](https://github.com/DiTsi/impulse/releases/tag/v1.0.0) i
 
 Default templates for `status icons`, `header` and `body` are [here](https://github.com/DiTsi/impulse/tree/main/templates).
 
-You can create your own template files based on defaults and set their path in [application.template_files](https://github.com/DiTsi/impulse/blob/main/impulse.slack.yml).
+You can create your own template files based on defaults and set their path in [application.template_files](config_file.md).
 
 
 ### Statuses and their colors
@@ -42,9 +42,9 @@ IMPulse has additional status to determine incident status actuality.
 
 Alertmanager has `repeat_interval` and `group_interval` values which force Alertmanager to send actual alert status even if it didn't change. 
 
-IMPulse has [`timeouts.firing`](https://github.com/DiTsi/impulse/blob/main/impulse.slack.yml) option during which the incident status should be updated by Alertamanger.
+IMPulse has [`timeouts.firing`](config_file.md) option during which the incident status should be updated by Alertamanger.
 
-For this you should set Alertmanager's `repeat_interval` + `group_interval` a little bit more than [`timeouts.firing`](https://github.com/DiTsi/impulse/blob/main/impulse.slack.yml).
+For this you should set Alertmanager's `repeat_interval` + `group_interval` a little bit more than [`timeouts.firing`](config_file.md).
 
 If Incident status isn't updated during `timeouts.firing` it switches to non-actual status named **unknown**.
 

@@ -33,10 +33,10 @@
         - users:read
     - we highly recommend to add the IP address of your IMPulse server in white list in **Restrict API Token Usage** subsection
     - in **OAuth Tokens** click the button **Install to &lt;your_workspace&gt;**, then **Allow**
-    - use "Bot User OAuth Token" as ENV `SLACK_BOT_USER_OAUTH_TOKEN` (using [here](impulse.md))
+    - use "Bot User OAuth Token" as ENV `SLACK_BOT_USER_OAUTH_TOKEN` (using [here](config_file.md))
 3. In **Basic Information** section:
     - in **App Credentials** subsection:
-        - use "Verification Token" as ENV `SLACK_VERIFICATION_TOKEN` (using [here](impulse.md))
+        - use "Verification Token" as ENV `SLACK_VERIFICATION_TOKEN` (using [here](config_file.md))
     - in **Display Information** subsection:
         - you can set [our logo](media/logo.png) as **App icon**
 
@@ -53,6 +53,7 @@
     - press **Save Changes**
 
 4. To use IMPulse bot in private channels you should add it manually. Run command in all necessary private channels:
+    
     ```
     /invite @IMPulse 
     ```

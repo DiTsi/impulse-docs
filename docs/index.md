@@ -2,7 +2,7 @@
 
 ## What is IMPulse?
 
-IMPulse - Incident Management Program that handles [Alertmanager's](https://prometheus.io/docs/alerting/latest/alertmanager/) alerts and creates Incidents in [instant messaging apps](apps.md).
+IMPulse - Incident Management Program that handles [Alertmanager's](https://prometheus.io/docs/alerting/latest/alertmanager/) alerts and creates incidents in messengers.
 
 ![None](media/slack_tile.png)
 

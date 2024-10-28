@@ -4,6 +4,8 @@ For the major version upgrade (**`v1.6.0` -> `v2.0.0`**) you should follow `Upgr
 
 Another upgrades can be done without manual operations.
 
+To understand our versioning model see [Versioning](versioning.md).
+
 <!-- ### Python -->
 
 ## Docker
