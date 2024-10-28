@@ -86,7 +86,7 @@ route:
 
 ### 2.3. IMPulse
 
-Examples and configurations options [here](config_file.md)
+See [examples](config_examples.md) and [configurations options](config_file.md)
 
 ## 3. Run
 
