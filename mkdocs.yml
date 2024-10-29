@@ -34,6 +34,7 @@ nav:
     - warnings/NotFound.md
     - warnings/ResponseCode.md
     - warnings/StatusUnknown.md
+    - warnings/TimeoutError.md
 - About:
   - concepts.md
   - versioning.md
