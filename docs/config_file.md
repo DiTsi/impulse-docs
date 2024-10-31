@@ -76,18 +76,18 @@ application:
 
 ### channels
 
-Define channels with their ID for using in [route](config_file.md#route)
+Define channels with their ID for using in [route](config_file.md#route). Use your messanger UI to get channels ID
 
 **channels examples**
 
-Define default channels (Slack example)
+Define default channels (Slack)
 ```yaml
 application:
   channels:
     incidents-default: {id: C09NSUL269T}
 ```
 
-Define default channel (Mattermost example)
+Define default channel (Mattermost)
 ```yaml
 application:
   channels:
