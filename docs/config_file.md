@@ -19,25 +19,27 @@ The only configuration file for IMPulse is `impulse.yml`. To change default `imp
 
 > **resolved** [`string`, default `12h`] - after this time Incident status will change from 'resolved' to 'closed' if no new alerts appear
 
-**route** - route for incidents routing is based on alert's fields. See [details](config_file.md#route)
+**route** [`dict`, _required_] - route for incidents routing is based on alert's fields. See [details](config_file.md#route)
 
-**application** - messenger configuration
+**application** [`dict`, _required_] - messenger configuration
 
 > **admin_users** [`list`, _required_] - IMPulse administrators. They will be notified when any warnings
 
-> **users** [`list`, _required_] - users declaration. See [details](config_file.md#users)
+> **users** [`dict`, _required_] - users declaration. See [details](config_file.md#users)
 
-> **chains** [`list`] - entity to describe notifications order. See [details](config_file.md#chains)
+> **user_groups** [`dict`] - user groups used to notify multiple users with one message
 
-> **user_groups** [`list`] - user groups used to notify multiple users with one message
+> **channels** [`dict`, _required_] - messenger channels used in IMPulse. See [details](config_file.md#channels)
 
-> **template_files** - path to custom template files. See [details](config_file.md#template_files)
+> **chains** [`dict`] - entity to describe notifications order. See [details](config_file.md#chains)
 
-> **type** [`string`] - type of messenger (`slack` or `mattermost`)
+> **template_files** [`dict`] - path to custom template files. See [details](config_file.md#template_files)
+
+> **type** [`string`, _required_] - type of messenger (`slack` or `mattermost`)
 
 **webhooks** - see [details](config_file.md#webhooks) to understand how to work with it
 
-**experimental** - experimental options (*WE HIGHLY RECOMMEND DO NOT USE IT*)
+**experimental** [`dict`] - experimental options (*WE HIGHLY RECOMMEND DO NOT USE IT*)
 
 > **recreate_chain** [`bool`, default `False`] - this option will <!-- release incident --> enable chain and start it again when new alerts added to incident
 
@@ -70,6 +72,26 @@ application:
       - user: Dmitry_s_boss
       - wait: 15m
       - user: CTO
+```
+
+### channels
+
+Define channels with their ID for using in [route](config_file.md#route)
+
+**channels examples**
+
+Define default channels (Slack example)
+```yaml
+application:
+  channels:
+    incidents-default: {id: C09NSUL269T}
+```
+
+Define default channel (Mattermost example)
+```yaml
+application:
+  channels:
+    incidents-default: {id: w8gvebq58fgo9civ8begs6renw}
 ```
 
 ### route

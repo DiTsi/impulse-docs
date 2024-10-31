@@ -10,6 +10,8 @@ application:
   type: slack
   admin_users:
   - Dmitry_Tsybus
+  channels:
+    space: {id: C09NSUL269T}
   users:
     Dmitry_Tsybus: {full_name: "Dmitry Tsybus"}
 ```
@@ -27,6 +29,8 @@ application:
   type: slack
   admin_users:
   - Dmitry_Tsybus
+  channels:
+    space: {id: w8gvebq58fgo9civ8begs6renw}
   users:
     Dmitry_Tsybus: {username: "ditsi"}
 ```
