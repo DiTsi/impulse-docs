@@ -168,6 +168,8 @@ application:
 
 Object which define users. They used in [chains](config_file.md#chains) as one of notification type.
 
+To get users `id` instructions for Slack ([here](https://www.workast.com/help/article/how-to-find-a-slack-user-id/)) and Mattermost ([here](https://docs.mattermost.com/configure/user-management-configuration-settings.html#identify-a-user-s-id)).
+
 #### users example
 
 **Slack example**
@@ -175,7 +177,7 @@ Object which define users. They used in [chains](config_file.md#chains) as one o
 ```yaml
 application:
   users:
-    DiTsi: {full_name: "Dmitry Tsybus"}
+    Dmitry: {id: U73MD1YLR4M}
 ```
 
 **Mattermost example**
@@ -183,7 +185,7 @@ application:
 ```yaml
 application:
   users:
-    DiTsi: {username: "ditsi"}
+    Dmitry: {id: ic8pft3ac7rjrd9eopxp4kc7qy}
 ```
 
 ### user_groups
