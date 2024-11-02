@@ -11,13 +11,13 @@ The only configuration file for IMPulse is `impulse.yml`. To change default `imp
 
 > **alerts_resolved_notifications** [`bool`, default `False`] - nofitication about old resolved instances
 
-**timeouts** - incident status timeouts (to realize incident [lifecycle](concepts.md#lifecycle))
+> **timeouts** - incident status timeouts (to realize incident [lifecycle](concepts.md#lifecycle))
 
-> **firing** [`string`, default `6h`] - after this time Incident status will change from 'firing' to 'unknown' if no new alerts appear
+> > **firing** [`string`, default `6h`] - after this time Incident status will change from 'firing' to 'unknown' if no new alerts appear
 
-> **unknown** [`string`, default `6h`] - after this time Incident status will change from 'resolved' to 'closed' if no new alerts appear
+> > **unknown** [`string`, default `6h`] - after this time Incident status will change from 'resolved' to 'closed' if no new alerts appear
 
-> **resolved** [`string`, default `12h`] - after this time Incident status will change from 'resolved' to 'closed' if no new alerts appear
+> > **resolved** [`string`, default `12h`] - after this time Incident status will change from 'resolved' to 'closed' if no new alerts appear
 
 **route** [`dict`, _required_] - route for incidents routing is based on alert's fields. See [details](config_file.md#route)
 
