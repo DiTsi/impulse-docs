@@ -23,7 +23,11 @@ The only configuration file for IMPulse is `impulse.yml`. To change default `imp
 
 **application** [`dict`, _required_] - messenger configuration
 
+> **address** [`string`, _mattermost only_] - your Mattermost server address
+
 > **admin_users** [`list`, _required_] - IMPulse administrators. They will be notified when any warnings
+
+> **impulse_address** [`string`, _mattermost only_] - define where Mattermost will send button events
 
 > **users** [`dict`, _required_] - users declaration. See [details](config_file.md#users)
 
