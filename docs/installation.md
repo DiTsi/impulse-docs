@@ -15,12 +15,12 @@ git clone --branch <release_tag> --single-branch git@github.com:DiTsi/impulse.gi
 cd impulse
 
 # for Slack
-cp impulse.slack.yml impulse.yml
-cp .env.slack .env
+cp examples/impulse.slack.yml impulse.yml
+cp examples/.env.slack .env
 
 # for Mattermost
-cp impulse.mattermost.yml impulse.yml
-cp .env.mattermost .env
+cp examples/impulse.mattermost.yml impulse.yml
+cp examples/.env.mattermost .env
 ```
 
 ### docker
@@ -28,13 +28,13 @@ cp .env.mattermost .env
 ```bash
 mkdir impulse impulse/config impulse/data
 cd impulse
-wget -O docker-compose.yml https://raw.githubusercontent.com/DiTsi/impulse/master/docker-compose.yml
+wget -O docker-compose.yml https://raw.githubusercontent.com/DiTsi/impulse/main/examples/docker-compose.yml
 
 # for Slack
-wget -O config/impulse.yml https://raw.githubusercontent.com/DiTsi/impulse/master/impulse.slack.yml
+wget -O config/impulse.yml https://raw.githubusercontent.com/DiTsi/impulse/main/examples/impulse.slack.yml
 
 # for Mattermost
-wget -O config/impulse.yml https://raw.githubusercontent.com/DiTsi/impulse/master/impulse.mattermost.yml
+wget -O config/impulse.yml https://raw.githubusercontent.com/DiTsi/impulse/main/examples/impulse.mattermost.yml
 ```
 
 don't forget to replace `<release_tag>` in `docker-compose.yml` to one of the [release tags](https://github.com/DiTsi/impulse/releases).
@@ -54,7 +54,7 @@ All code examples below are for [`alertmanager.yml`](https://prometheus.io/docs/
 #### 2.2.1. set repeat_interval
 
 
-Set the sum of `repeat_interval` and `group_interval` options less than [`timeouts.firing`](https://github.com/DiTsi/impulse/blob/main/impulse.slack.yml) (default `6h`):
+Set the sum of `repeat_interval` and `group_interval` options less than [`timeouts.firing`](https://github.com/DiTsi/impulse/blob/main/examples/impulse.slack.yml) (default `6h`):
 ```yaml
 route:
   repeat_interval: 354m
@@ -86,41 +86,19 @@ route:
 
 ### 2.3. IMPulse
 
-See [examples](config_examples.md) and [configurations options](config_file.md)
+Modify `.env` (python) or `docker-compose.yml` (docker) with required [Environment Variables](envs.md) information.
+
+Modify `impulse.yml` with your data. See all configurations options [here](config_file.md).
 
 ## 3. Run
 
-Use your installation option
-
-### python
+Run this way for **python** installation:
 
 ```bash
-# for Slack
-# get ENVs here https://docs.impulse.bot/latest/slack/
-echo 'SLACK_BOT_USER_OAUTH_TOKEN=<your_oauth_token>' >> .env
-echo 'SLACK_VERIFICATION_TOKEN=<your_verif_token>' >> .env
-
-# for Mattermost
-# get ENV here https://docs.impulse.bot/latest/mattermost/
-echo 'MATTERMOST_ACCESS_TOKEN=<your_access_token>' >> .env
-
 gunicorn -w 1 -b 0.0.0.0:5000 wsgi:app
 ```
 
-### docker
-
-Set environment variables
-
-```yaml
-# for Slack
-SLACK_BOT_USER_OAUTH_TOKEN
-SLACK_VERIFICATION_TOKEN
-
-# for Mattermost
-MATTERMOST_ACCESS_TOKEN
-```
-
-in `docker-compose.yml` and run IMPulse:
+or for **docker**:
 
 ```bash
 docker-compose up -d
