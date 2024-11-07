@@ -28,6 +28,7 @@ nav:
     - config_examples.md
   - best.md
   - upgrade.md
+  - versioning.md
   - Warnings:
     - warnings/ConnectionError.md
     - warnings/NotDefined.md
@@ -37,4 +38,3 @@ nav:
     - warnings/TimeoutError.md
 - About:
   - concepts.md
-  - versioning.md
