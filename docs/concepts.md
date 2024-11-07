@@ -42,16 +42,16 @@ IMPulse has additional status to determine incident status actuality.
 
 Alertmanager has `repeat_interval` and `group_interval` values which force Alertmanager to send actual alert status even if it didn't change. 
 
-IMPulse has [`timeouts.firing`](config_file.md) option during which the incident status should be updated by Alertamanger.
+IMPulse has [`incident.timeouts.firing`](config_file.md) option during which the incident status should be updated by Alertamanger.
 
-For this you should set Alertmanager's `repeat_interval` + `group_interval` a little bit more than [`timeouts.firing`](config_file.md).
+For this you should set Alertmanager's `repeat_interval` + `group_interval` a little bit more than [`incident.timeouts.firing`](config_file.md).
 
-If Incident status isn't updated during `timeouts.firing` it switches to non-actual status named **unknown**.
+If Incident status isn't updated during `incident.timeouts.firing` it switches to non-actual status named **unknown**.
 
 The appearence of **unknown** Incident is caused by one of this reasons:
 
 - IMPulse didn't receive actual status from Alertmanager. Maybe IMPulse was down, Alertmanager was down or there are some network problems
-- `repeat_interval`+`group_interval` is less than IMPulse's `timeouts.firing`
+- `repeat_interval`+`group_interval` is less than IMPulse's `incident.timeouts.firing`
 
 When Incident becomes **unknown** IMPulse sends warning message to `application.admin_users`.
 
@@ -62,8 +62,8 @@ When Incident becomes **unknown** IMPulse sends warning message to `application.
 It is an Incident which hasn't already been tracked by IMPulse. 
 
 There are two ways how the Incident can be closed: 
-- **resolved** Incident stays in this status for `timeouts.resolved` time
-- **unknown** Incidents stays in this status for `timeouts.unknown` time
+- **resolved** Incident stays in this status for `incident.timeouts.resolved` time
+- **unknown** Incidents stays in this status for `incident.timeouts.unknown` time
 
 
 ### Lifecycle

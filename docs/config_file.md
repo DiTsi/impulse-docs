@@ -11,33 +11,39 @@ The only configuration file for IMPulse is `impulse.yml`. To change default `imp
 
 > **alerts_resolved_notifications** [`bool`, default `False`] - nofitication about old resolved instances
 
-**timeouts** - incident status timeouts (to realize incident [lifecycle](concepts.md#lifecycle))
+> **timeouts** - incident status timeouts (to realize incident [lifecycle](concepts.md#lifecycle))
 
-> **firing** [`string`, default `6h`] - after this time Incident status will change from 'firing' to 'unknown' if no new alerts appear
+> > **firing** [`string`, default `6h`] - after this time Incident status will change from 'firing' to 'unknown' if no new alerts appear
 
-> **unknown** [`string`, default `6h`] - after this time Incident status will change from 'resolved' to 'closed' if no new alerts appear
+> > **unknown** [`string`, default `6h`] - after this time Incident status will change from 'resolved' to 'closed' if no new alerts appear
 
-> **resolved** [`string`, default `12h`] - after this time Incident status will change from 'resolved' to 'closed' if no new alerts appear
+> > **resolved** [`string`, default `12h`] - after this time Incident status will change from 'resolved' to 'closed' if no new alerts appear
 
-**route** - route for incidents routing is based on alert's fields. See [details](config_file.md#route)
+**route** [`dict`, _required_] - route for incidents routing is based on alert's fields. See [details](config_file.md#route)
 
-**application** - messenger configuration
+**application** [`dict`, _required_] - messenger configuration
+
+> **address** [`string`, _mattermost only_] - your Mattermost server address
 
 > **admin_users** [`list`, _required_] - IMPulse administrators. They will be notified when any warnings
 
-> **users** [`list`, _required_] - users declaration. See [details](config_file.md#users)
+> **impulse_address** [`string`, _mattermost only_] - define where Mattermost will send button events
 
-> **chains** [`list`] - entity to describe notifications order. See [details](config_file.md#chains)
+> **users** [`dict`, _required_] - users declaration. See [details](config_file.md#users)
 
-> **user_groups** [`list`] - user groups used to notify multiple users with one message
+> **user_groups** [`dict`] - user groups used to notify multiple users with one message
 
-> **template_files** - path to custom template files. See [details](config_file.md#template_files)
+> **channels** [`dict`, _required_] - messenger channels used in IMPulse. See [details](config_file.md#channels)
 
-> **type** [`string`] - type of messenger (`slack` or `mattermost`)
+> **chains** [`dict`] - entity to describe notifications order. See [details](config_file.md#chains)
+
+> **template_files** [`dict`] - path to custom template files. See [details](config_file.md#template_files)
+
+> **type** [`string`, _required_] - type of messenger (`slack` or `mattermost`)
 
 **webhooks** - see [details](config_file.md#webhooks) to understand how to work with it
 
-**experimental** - experimental options (*WE HIGHLY RECOMMEND DO NOT USE IT*)
+**experimental** [`dict`] - experimental options (*WE HIGHLY RECOMMEND DO NOT USE IT*)
 
 > **recreate_chain** [`bool`, default `False`] - this option will <!-- release incident --> enable chain and start it again when new alerts added to incident
 
@@ -70,6 +76,26 @@ application:
       - user: Dmitry_s_boss
       - wait: 15m
       - user: CTO
+```
+
+### channels
+
+Define channels with their ID for using in [route](config_file.md#route). Use your messanger UI to get channels ID
+
+**channels examples**
+
+Define default channels (Slack)
+```yaml
+application:
+  channels:
+    incidents-default: {id: C09NSUL269T}
+```
+
+Define default channel (Mattermost)
+```yaml
+application:
+  channels:
+    incidents-default: {id: w8gvebq58fgo9civ8begs6renw}
 ```
 
 ### route
@@ -146,6 +172,8 @@ application:
 
 Object which define users. They used in [chains](config_file.md#chains) as one of notification type.
 
+To get users `id` instructions for Slack ([here](https://www.workast.com/help/article/how-to-find-a-slack-user-id/)) and Mattermost ([here](https://docs.mattermost.com/configure/user-management-configuration-settings.html#identify-a-user-s-id)).
+
 #### users example
 
 **Slack example**
@@ -153,7 +181,7 @@ Object which define users. They used in [chains](config_file.md#chains) as one o
 ```yaml
 application:
   users:
-    DiTsi: {full_name: "Dmitry Tsybus"}
+    Dmitry: {id: U73MD1YLR4M}
 ```
 
 **Mattermost example**
@@ -161,7 +189,7 @@ application:
 ```yaml
 application:
   users:
-    DiTsi: {username: "ditsi"}
+    Dmitry: {id: ic8pft3ac7rjrd9eopxp4kc7qy}
 ```
 
 ### user_groups
