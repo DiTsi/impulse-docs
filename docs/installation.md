@@ -54,7 +54,7 @@ All code examples below are for [`alertmanager.yml`](https://prometheus.io/docs/
 #### 2.2.1. set repeat_interval
 
 
-Set the sum of `repeat_interval` and `group_interval` options less than [`timeouts.firing`](https://github.com/DiTsi/impulse/blob/main/examples/impulse.slack.yml) (default `6h`):
+Set the sum of `repeat_interval` and `group_interval` options less than [`incident.timeouts.firing`](https://github.com/DiTsi/impulse/blob/main/examples/impulse.slack.yml) (default `6h`):
 ```yaml
 route:
   repeat_interval: 354m
