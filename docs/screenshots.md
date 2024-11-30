@@ -1,18 +1,17 @@
 # Screenshots
 
 ## Incidents
-![None](media/links.png)
 
-### 'firing' status
+### status 'firing'
 ![None](media/slack_firing.png)
 
-### 'unknown' status
+### status 'unknown'
 ![None](media/slack_unknown.png)
 
-### 'resolved' status
+### status 'resolved'
 ![None](media/slack_resolved.png)
 
-### 'closed' status
+### status 'closed'
 ![None](media/slack_closed.png)
 
 ## Notifications
