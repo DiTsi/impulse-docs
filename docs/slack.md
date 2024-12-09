@@ -42,18 +42,19 @@
 
 ### Configure channels
 
-1. `application.admin_users` **should** be in all `route` channels.
-2. Add users from `application.chains` to their channels.
+1. To use IMPulse bot in private channels you **should** add it manually. Run command in all necessary private channels:
 
-    To make it simpler you can add all `application.users` to all channels from `route`. If users do next recommendation, no extra notifications will appear.
+    ```
+    /invite @IMPulse 
+    ```
 
-3. Highly recommend to set "Just @mentions" notifications for every of `application.users` for their `route` channels. Users on their channels should:
+2. `application.admin_users` **should** be in all `route` channels.
+3. Add users from `application.chains` to their channels.
+
+    To make it simpler you can add all `application.users` to all channels from `route` block.
+
+4. Highly recommend to set "Just @mentions" notifications for every of `application.users` for their `route` channels. Users on their channels should:
     - press **right mouse button** on channel and select "Change notifications"
     - select "Mentions" and check "Also include @channel and @here
     - press **Save Changes**
 
-4. To use IMPulse bot in private channels you should add it manually. Run command in all necessary private channels:
-    
-    ```
-    /invite @IMPulse 
-    ```

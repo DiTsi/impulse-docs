@@ -31,7 +31,7 @@ The only configuration file for IMPulse is `impulse.yml`. To change default `imp
 
 > **users** [`dict`, _required_] - users declaration. See [details](config_file.md#users)
 
-> **user_groups** [`dict`] - user groups used to notify multiple users with one message
+> **user_groups** [`list`] - user groups declaration. See [details](config_file.md#user_groups)
 
 > **channels** [`dict`, _required_] - messenger channels used in IMPulse. See [details](config_file.md#channels)
 
@@ -54,11 +54,15 @@ The only configuration file for IMPulse is `impulse.yml`. To change default `imp
 
 Chain defines how to notify people about incident. Chains used in [route](config_file.md#route).
 
-Every chain has list of steps. Step can be one of 4 instructions. 3 of them is notifications: [`user`](config_file.md#users), [`user_group`](config_file.md#user_groups), [`webhook`](config_file.md#webhooks). The last one is `wait` - to split notifications by time.
+There are 2 types of chain: **simple** and **schedule**.
 
-`wait` format seems like **sleep** utility format, but without float support and complex expressions like `1m 3s`. Available 4 options: `s` (seconds), `m` (minutes), `h` (hours), `d` (days).
+#### simple chain
 
-**chains example**
+Every chain has list of **steps**. Step can be one of 4 instructions. 3 of them is notifications: [`user`](config_file.md#users), [`user_group`](config_file.md#user_groups), [`webhook`](config_file.md#webhooks). The last one is `wait` - to split notifications by time.
+
+`wait` format seems like [sleep](https://www.gnu.org/software/coreutils/manual/html_node/sleep-invocation.html) utility format, but without float support and complex expressions like `1m 3s`. Available 4 options: `s` (seconds), `m` (minutes), `h` (hours), `d` (days).
+
+**devops chains example**
 
 Defined two chains for DevOps team
 ```yaml
@@ -70,12 +74,98 @@ application:
       - user: Dmitry_s_boss
     devops-critical:
       - user: Dmitry
-      - wait: 2m
+      - wait: 3m
       - webhook: Dmitry_call
       - wait: 5m
       - user: Dmitry_s_boss
       - wait: 15m
       - user: CTO
+```
+
+#### schedule chain
+
+Schedule chain add you ability to set chains with calendar
+
+##### schedule chain options:
+
+**type** [`string`, _required_] - set chain type using `type: schedule`
+
+**timezone** [`string`, default `UTC`] - your timezone with "TZ identifier" format (details [here](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#Time_zone_abbreviations))
+
+**schedule** [`list`] - list of datetime matchers with steps. Current datetime is compared with every matcher and if any matches, theese steps will be used
+
+> **matcher** [`dict`] - datetime matcher which will be compared with current datetime
+
+>> **start_day_expr** [`string`, _required_] - expression to select start day for datetime range. 
+
+>>    Expression can have one of three instructions:
+
+>>    - dow - day of week. Available `start_day_values`: `0` to `7` (like in [cron](https://en.wikipedia.org/wiki/Cron)) or "Sun", "Mon"...
+
+>>    - dom - day of month [1..31]
+
+>>    - date - exactly date with format `2024.12.24`
+
+>>    Also you can use expression with `dom` and `dow` like `dom % 2` which calculates least positive remainder as value.
+
+>> **start_day_values** [`list`] - list of start day values which will match
+
+>> **start_time** [`string`] - local time when duty starts in start_day
+
+>> **duration** [`string`] - time range duration (`24h` maximum)
+
+> **steps** [`list`, _required_] - chain steps like in simple chain
+
+We recommend to use `steps` without `matcher` in the end, to handle datetimes which don't match any of matchers.
+
+**schedule chain examples**
+
+
+```yaml
+application:
+  chains:
+    support:
+      type: schedule
+      timezone: Asia/Tashkent
+      schedule:
+        - matcher:
+            start_day_expr: dow
+            start_day_values: ["Mon", "Tue"]
+            start_time: "09:00" # 24h format
+            duration: 24h # 0h..24h
+          steps:
+            - user: Dmitry
+        - matcher:
+            start_day_expr: dow
+            start_day_values: ["Wed", "Thu"]
+            start_time: "09:00" # 24h format
+            duration: 24h # 0h..24h
+          steps:
+            - user: Alexander
+        - steps: # will work at Sunday
+            - user: Administrator
+```
+
+Also you can use this format for `dow` and `dom`:
+
+```yaml
+- matcher:
+    start_day_expr: dow % 2
+    start_day_values: [0] # matches when Tue, Thu, Sat
+```
+
+Defined two simple chains for DevOps team
+```yaml
+application:
+  chains:
+    support:
+      type: schedule
+      timezone: Asia/Tashkent
+      schedule:
+        - {matcher: {start_day_expr: dow, start_day_values: [1, 2], start_time: "12:00", duration: 12h}, steps: [{user: Dmitry}]}
+        - {matcher: {start_day_expr: dow, start_day_values: [3, 4], start_time: "12:00", duration: 12h}, steps: [{user: Alexander}]}
+        - {matcher: {start_day_expr: dow, start_day_values: [5, 6], start_time: "12:00", duration: 12h}, steps: [{user: Maria}]}
+        - {steps: [{user: Oleg }]} # full Sunday and 00:00 to 12:00 every day
 ```
 
 ### channels
@@ -194,9 +284,15 @@ application:
 
 ### user_groups
 
-Object which define user groups. They used in [chains](config_file.md#chains) as one of notification type.
+Object to notify multiple users at once. They used in [chains](config_file.md#chains) as one of notification type.
 
-Empty
+#### user_groups example
+
+```yaml
+application:
+  user_groups:
+    developers: {users: ["Dmitry", "Alexander"]}
+```
 
 ### webhooks
 
